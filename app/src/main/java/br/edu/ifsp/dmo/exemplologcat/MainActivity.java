@@ -25,6 +25,22 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        /**
+         * Apresentar mensagem no logcat ao carregar o aplicativo
+         */
+        Log.v(TAG, "Mensagem de uso geral, mostra todas as mensagens de log.");
+        Log.d(TAG, "Registros úteis apenas na depuração");
+        Log.i(TAG, "Mensagem de informações");
+        Log.w(TAG, "Mensagens de aviso");
+        Log.e(TAG, "Mensagens de erro");
+
+        /**
+         * Configurando o listview para apresentar as opções de mensagem
+         * que serão apresentadas na tela. Observa-se que o clique nos
+         * itens da listview será tratado pela MainActivity, por isso
+         * a MainActivity implementa a interface OnItemClickListener de
+         * AparterView.
+         */
         Adapter adapter = new Adapter(this, opcoes);
         listView = findViewById(R.id.listview);
         listView.setAdapter(adapter);
@@ -33,6 +49,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+        /**
+         * Recupera a posição do clique e escreve no logcat qual o
+         * item da lista foi clicado. Aqui cada item representa
+         * um nível de mensagem do logcat. Ao final é apresentado
+         * um toast que informa que o log foi registrado no
+         * logcat.
+         */
 
         switch (position){
             case 0:
